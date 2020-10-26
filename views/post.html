@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/post.css">
+
+    <title>renotebeta</title>
+  </head>
+  <body>
+<!--      Navbar          -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd; height: 60px">
+    <div class="d-flex">
+        <span class="w-100 d-md-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-md-inline-block" href="landing.html">
+            renote
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="followed.html"><i class="fas fa-bookmark navicon"></i>&nbsp;&nbsp;Followed Stories</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="#">&nbsp;&nbsp;<i class="fas fa-bell navicon"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="create.html"><i class="fas fa-pen-square navicon"></i>&nbsp;&nbsp;Write Story</a>
+            </li>
+
+           <li class="nav-item">
+                <a href="profile.html" class="nav-link m-2 menu-item">username</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="container">
+  <div class="row">
+<!--                                  Create Button Use Vue for onclick buttons            -->
+    <div class="col-lg-9">
+
+<!-- Newsfeed Thread -->
+    <div class="card" id="thread">
+        <div class="card-body">
+            <i class="far fa-bookmark float-right navicon">&nbsp;&nbsp;Follow Story</i>
+            <h1 class="card-title" id="title-tag"><%= title %></h1>
+            <h5 class="card-text font-weight-light" id="caption-tag"><%= caption %></h5>
+            <a class="crd-title" href="profile.html"><h6 class="card-subtitle mb-2 navicon">rain_maker06</h6></a>
+            <!-- Vue handle square number -->
+            <i class="far fa-square float-right mx-1"></i>
+            <i class="far fa-square float-right mx-1"></i>
+            <i class="far fa-square float-right mx-1"></i>
+            <i class="far fa-square float-right mx-1"></i>
+            <i class="far fa-square float-right mx-1"></i>
+            <i class="far fa-square float-right mx-1"></i>
+            <!-- Bottom interactions -->
+            <i class="far fa-heart text-muted mx-4 cardicon">&nbsp;<span class="numicon">10</span></i>
+            <i class="fas fa-comment-alt text-muted mx-4 cardicon">&nbsp;&nbsp;<span class="numicon">40</span></i>
+        </div>
+    </div>
+
+    </div>
+
+
+  </div>
+    <div class="col-lg-9">
+
+        <div class="card add-cmt">
+            <div class="card-body">
+                <button class="btn btn-primary btn-sm float-right">Comment</button>
+                <h7 class="card-text"><input class="border-0" type="" name="" placeholder="Add a comment"></h7>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h9>uername //</h9>
+                <h7 class="card-text"><span>A nice comment!</span><h7>
+            </div>
+        </div>
+
+    </div>
+ 
+    <script>
+
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

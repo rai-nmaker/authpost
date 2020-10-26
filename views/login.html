@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+
+    <title>renote</title>
+  </head>
+  <body>
+
+    <!--      Navbar          -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd; height: 60px">
+    <div class="d-flex">
+        <span class="w-100 d-md-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-md-inline-block" href="/">
+            renote
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+           <li class="nav-item">
+                <a href="/login" class="nav-link m-2 menu-item">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/signup" class="nav-link m-2 menu-item">Signup</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+    <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Login Form -->
+    <form onsubmit="return doLogin(this);">
+      <h3>Login</h3>
+      <input type="text" required name="username" id="login" class="fadeIn second" name="login" placeholder="Username">
+      <input type="password" required name="password" id="password" class="fadeIn third" name="login" placeholder="Password">
+      <input name="submit" type="submit" class="fadeIn fourth" value="Log In">
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+      </>
+    </form>
+
+    <!-- Remind Passowrd -->
+
+
+  </div>
+</div>
+
+    <script>
+        function doLogin(form) {
+
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", "/login", true);
+
+            ajax.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200) {
+
+                    var response = JSON.parse(this.responseText);
+                    
+                    if(response.status == "success"){
+                        var accessToken = response.accessToken;
+                        localStorage.setItem("accessToken", accessToken);
+                        if (response.status == "success"){
+                            window.location.href = "/landing";
+                        } else{
+                            // Must work on without updating profile -------------------------
+                            window.location.href = "/"
+                        }
+                    
+                } else {
+                    alert(response.message);
+                }
+            }
+        };
+        ajax.send(new FormData(form));
+        return false;
+    }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

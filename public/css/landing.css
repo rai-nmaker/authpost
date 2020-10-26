@@ -1,0 +1,41 @@
+body {
+	background: white;
+}
+.container {
+	margin-top: 20px;
+}
+
+#thread {
+	margin-bottom: 10px;
+}
+
+a.crd-title {
+	color: black;
+  	text-decoration: none;
+}
+a.crd-title:hover {
+	color: #0E9BC8;
+}
+.card-crt {
+	height: 50px;
+}
+.card-crt:hover {
+	text-decoration: none;
+}
+
+.card-bd {
+	padding-top: 13px;
+}
+.fa-plus {
+	padding-top: 5px;
+}
+.navicon {
+	color: #7CA8BC;
+}
+
+.numicon {
+	color: #0E9BC8;
+}
+.cardicon {
+	color: #7CA8BC;
+}

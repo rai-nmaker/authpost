@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/landing.css">
+
+    <title>renotebeta</title>
+  </head>
+  <body>
+<!--      Navbar          -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd; height: 60px">
+    <div class="d-flex">
+        <span class="w-100 d-md-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-md-inline-block" href="landing.html">
+            renote
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="followed.html"><i class="fas fa-bookmark navicon"></i>&nbsp;&nbsp;Followed Stories</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="#">&nbsp;&nbsp;<i class="fas fa-bell navicon"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="create.html"><i class="fas fa-pen-square navicon"></i>&nbsp;&nbsp;Write Story</a>
+            </li>
+
+           <li class="nav-item">
+                <a href="profile.html" class="nav-link m-2 menu-item">username</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logout" class="nav-link m-2 menu-item" onclick="return doLogout();"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+  <div class="row">
+<!--                                  Create Button Use Vue for onclick buttons            -->
+    <div class="col-lg-9">
+        <a href="/create" class="card card-crt text-dark thread">
+            <div class="card-body text-muted mx-4 card-bd">
+            New Story...
+            <i class="fas fa-plus float-right"></i>
+            </div>
+        </a>
+<!-- <% stories.forEach(story => { %> -->
+<!-- Newsfeed Thread -->
+            <div class="card text-dark border-left-0 rounded-0">
+ 
+                <div class="card-body">
+                    <i class="far fa-bookmark float-right navicon">&nbsp;&nbsp;Follow Story</i>
+                    <a class="crd-title" href="/post"><h4 class="card-title">Story Title</h4></a>
+                    <p class="card-text"> story.subtext <p>
+                    <a class="crd-title" href="profile.html"><h6 class="card-subtitle mb-2 navicon">rain_maker06</h6></a>
+                    <i class="far fa-heart text-muted mx-4 cardicon">&nbsp;<span class="numicon10span></i>
+                    <i class="fas fa-comment-alt text-muted mx-4 cardicon">&nbsp;&nbsp;<span class="numicon">40</span></i>
+                </div>
+
+            </div>
+ <!--       <% }) %> -->
+
+    </div>
+
+  </div>
+</div>
+
+    <script>
+        
+        function doLogout(){
+        localStorage.removeItem("accessToken");
+        return true;
+    }
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

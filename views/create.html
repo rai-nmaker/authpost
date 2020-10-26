@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/create.css">
+
+    <title>renotebeta</title>
+  </head>
+  <body>
+<!--      Navbar          -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="background-color: #e3f2fd; height: 60px">
+    <div class="d-flex">
+        <span class="w-100 d-md-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-md-inline-block" href="/landing">
+            renote
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="followed.html"><i class="fas fa-bookmark navicon"></i>&nbsp;&nbsp;Followed Stories</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="#">&nbsp;&nbsp;<i class="fas fa-bell navicon"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link m-2 menu-item" href="create.html"><i class="fas fa-pen-square navicon"></i>&nbsp;&nbsp;Write Story</a>
+            </li>
+
+           <li class="nav-item">
+                <a href="profile.html" class="nav-link m-2 menu-item">username</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item"><i class="fas fa-sign-out-alt"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+  <div class="row justify-content-sm-center my-5">
+<!-- Create Button -->
+    <div class="col-lg-8 ">
+<!-- Newsfeed Thread -->
+    <div class="card" id="thread">
+        <div class="card-body">
+            <form onsubmit="return doPost(this);" action="/post" method="POST">
+                <button class="btn btn-primary float-right" name="submit" type="submit" id="landingRed">Post</button>
+                <h1 class="card-title"><input class="border-0" id="input-field-title" required type="text" name="title" placeholder="Title"></h1>
+                <h4 class="card-text"><input class="border-0" id="input-field" required type="text" name="caption" placeholder="Your story"></h4>
+                <i class="fas fa-plus-circle float-right"></i>
+                <i class="far fa-square float-right mx-5" style="color: #0E9BC8"></i>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+<!-- Side buttons 
+     <div class="card col-lg-3 col-md-3 d-none d-md-block" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+          <a class="nav-link text-dark" href="#">Followed Stories</a>
+          <a class="nav-link text-dark" href="#">Create Story</a>
+        </ul>   
+    </div>-->
+
+
+  </div>
+</div>
+ 
+    <script>
+        
+
+    //Do post--------------------------------------------------------------------------------------------------------------------
+    function doPost(form){
+            var ajax = new XMLHttpRequest();
+            ajax.open("POST", "/addPost", true);
+
+            ajax.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+
+                    var response = JSON.parse(this.responseText);
+
+                    alert(response.message);
+
+                    if(response.status == "success"){
+                        document.getElementById("input-field-title").value = "";
+                        document.getElementById("input-field").value = "";
+
+                        window.location.href = "/post";
+
+                        //showNewsfeed();
+                        
+                    }
+                }
+            };
+
+            var formData = new FormData(form);
+            formData.append("accessToken", localStorage.getItem("accessToken"));
+            ajax.send(formData);
+
+            return false;
+        }
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
